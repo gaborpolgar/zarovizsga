@@ -25,7 +25,7 @@ public class DigitsCounter {
     }
 
     private boolean isDigit(String s, int i) {
-        return Character.getNumericValue(s.charAt(i)) < 10 && Character.getNumericValue(s.charAt(i)) > 0;
+        return Character.getNumericValue(s.charAt(i)) < 10 && Character.getNumericValue(s.charAt(i)) >= 0;
     }
 
     private boolean isNull (String s){
