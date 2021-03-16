@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -36,7 +37,7 @@ public class DogTypes {
             while (rs.next()) {
                 results.add(rs.getString("name").toLowerCase());
             }
-            Collections.sort(results);
+            results.sort(Collator.getInstance(new Locale("hu", "HU")));
             return results;
         } catch (SQLException sqlException) {
             throw new IllegalStateException("The preparedStatement is not appropriate", sqlException);
