@@ -7,7 +7,7 @@ import java.util.Set;
 
 public class DigitsCounter {
 
-    private static final int NON_DIGIT = -1;
+//    private static final int NON_DIGIT = -1;
 
     public int getCountOfDigits(String s) {
         if (isNull(s)) {
@@ -16,17 +16,19 @@ public class DigitsCounter {
         Set<Integer> variousNumbers = new HashSet<>();
         int temp;
         for (int i = 0; i < s.length(); i++) {
-            if (Character.getNumericValue(s.charAt(i)) != NON_DIGIT) {
+            if (isDigit(s, i)) {
                 temp = Character.getNumericValue(s.charAt(i));
-                if (temp < 10) {
-                    variousNumbers.add(temp);
-                }
+                variousNumbers.add(temp);
             }
         }
-        return variousNumbers.size();
+            return variousNumbers.size();
     }
 
-    private boolean isNull(String s) {
-        return s == null;
+    private boolean isDigit(String s, int i) {
+        return Character.getNumericValue(s.charAt(i)) < 10 && Character.getNumericValue(s.charAt(i)) > 0;
     }
+
+    private boolean isNull (String s){
+            return s == null;
+        }
 }
